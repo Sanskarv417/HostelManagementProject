@@ -1,11 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect("mongodb+srv://VipulMahajan:vipul04082002@cluster0.g0h86.mongodb.net/HMS?retryWrites=true&w=majority");
-    } catch (err) {
-        console.error(err);
-    }
-}
+const connectToMongoDB = async () => {
+    mongoose
+        .connect(process.env.MONGO_URI)
+        .then(() => {
+            console.log("Database connected");
+        })
+        .catch((err) => {
+            console.log("Database connection failed. Server not started");
+            console.log(err);
+        }); 
+};
 
-module.exports = connectDB
+module.exports = connectToMongoDB;

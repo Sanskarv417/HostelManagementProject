@@ -5,7 +5,7 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const app = express();
 require('dotenv').config();
-const connectDB = require('./DB/dbConn');
+const connectDB = require('./DB/DBconn');
 const User = require('./model/User');
 const Prof = require('./model/Profile');
 const Complaint = require('./model/Complaint'); 
